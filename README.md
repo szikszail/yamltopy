@@ -1,1 +1,1 @@
-# yaml-to-py
+# yamltopy
