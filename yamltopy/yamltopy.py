@@ -36,7 +36,7 @@ def generate_py_content(name, data):
 def save_py(file, content):
     logger.info('Saving PY file: %s', file)
     folder = os.path.dirname(file)
-    if not os.path.exists(folder):
+    if folder and not os.path.exists(folder):
         try:
             os.makedirs(folder)
         except OSError as exc:
@@ -44,7 +44,7 @@ def save_py(file, content):
                 raise
     with open(file, 'w', encoding='utf-8', ) as f:
         f.write(content)
-    
+
 
 def main():
     parser = argparse.ArgumentParser(

@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="yamltopy",
-    version="0.0.2",
+    version="1.0.0",
     author="Laszlo Szikszai",
     author_email="sziklaszlo@gmail.com",
     description="A CLI tool to convert YAML file to Python module for better load performance",
