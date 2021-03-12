@@ -1,3 +1,7 @@
 build
 dist
 *.egg-info
+output*.py
+tmp
+__pycache__
+.pytest_cache

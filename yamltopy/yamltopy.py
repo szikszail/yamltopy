@@ -9,7 +9,9 @@ More info: http://github.com/szikszail/yamltopy
 """
 
 import argparse
+import errno
 import logging
+import os
 import yaml
 
 logger = logging.getLogger('yamltopy')
@@ -33,9 +35,16 @@ def generate_py_content(name, data):
 
 def save_py(file, content):
     logger.info('Saving PY file: %s', file)
-    with open(file, 'w', encoding='utf-8') as f:
+    folder = os.path.dirname(file)
+    if not os.path.exists(folder):
+        try:
+            os.makedirs(folder)
+        except OSError as exc:
+            if exc.errno != errno.EEXIST:
+                raise
+    with open(file, 'w', encoding='utf-8', ) as f:
         f.write(content)
-
+    
 
 def main():
     parser = argparse.ArgumentParser(
